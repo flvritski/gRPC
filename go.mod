@@ -1,4 +1,4 @@
-module github.com/flvritski/grpc-go-course
+module github.com/flvritski/gRPC
 
 go 1.21.1
 
