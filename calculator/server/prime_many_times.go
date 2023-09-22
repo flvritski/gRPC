@@ -11,28 +11,28 @@ import (
 func (s *Server) PrimeManyTimes(in *pb.PrimeRequest, stream pb.CalculatorService_PrimeManyTimesServer) error {
 	log.Printf("PrimeManyTimes function was invoked with: %v\n", in)
 
-	// number := in.PrimeNumber
-	// divisor := int32(2)
+	number := in.PrimeNumber
+	divisor := int32(2)
 
-	// for number > 1 {
-	// 	if number%divisor == 0 {
-	// 		stream.Send(&pb.PrimeResponse{
-	// 			PrimeResult: divisor,
-	// 		})
-
-	// 		number /= divisor
-	// 	} else {
-	// 		divisor++
-	// 	}
-	// }
-
-	for i := 0; i < 10; i++ {
-		if isPrime(in.PrimeNumber) == true {
+	for number > 1 {
+		if number%divisor == 0 {
 			stream.Send(&pb.PrimeResponse{
-				PrimeResult: 1,
+				PrimeResult: divisor,
 			})
+
+			number /= divisor
+		} else {
+			divisor++
 		}
 	}
+
+	// for i := 0; i < 10; i++ {
+	// 	if isPrime(in.PrimeNumber) == true {
+	// 		stream.Send(&pb.PrimeResponse{
+	// 			PrimeResult: 1,
+	// 		})
+	// 	}
+	// }
 	return nil
 }
 
