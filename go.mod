@@ -2,7 +2,7 @@ module github.com/flvritski/gRPC
 
 go 1.21.1
 
-require google.golang.org/grpc v1.58.1
+require google.golang.org/grpc v1.58.2
 
 require (
 	github.com/golang/protobuf v1.5.3 // indirect
