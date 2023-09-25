@@ -1,3 +1,6 @@
-*.crt
-*.key
-*.pem
+# .gitignore
+ssl/ca.crt
+ca.key
+server.csr
+server.key
+server.pem
