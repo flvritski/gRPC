@@ -1,5 +1,31 @@
 # Read me
 
+## Prerequisites
+
+Before you begin, make sure you have the following installed on your system:
+
+- Docker
+- Docker Compose
+- Go (if you want to build and run the gRPC server and client manually)
+
+## Setting up your Go environment
+
+If you haven't already set up your Go environment, you can do so by following these steps:
+
+1. Verify your Go environment to ensur ethat `GOPATH` is configured properly:
+
+```sh
+go env GOPATH
+```
+
+2. Add the Go binary directory to your system's `PATH` variable so that you can use GO commands more conveniently:
+
+```sh
+export PATH="$PATH:$(go env GOPATH)/bin"
+```
+
+---
+
 This repo makes use of a `docker-compose.yml` file which consists in 2 services:
 
 - mongo
@@ -23,17 +49,17 @@ We have 3 main types:
 We also make sure that the connection is secured, using SSL certs.
 You can make use of the `ssl.sh` script that's inside the `ssl/` folder. This will generate for you
 
-### ca.key: Certificate Authority private key file (this shouldn't be shared in real-life)
+#### ca.key: Certificate Authority private key file (this shouldn't be shared in real-life)
 
-### ca.crt: Certificate Authority trust certificate (this should be shared with users in real-life)
+#### ca.crt: Certificate Authority trust certificate (this should be shared with users in real-life)
 
-### server.key: Server private key, password protected (this shouldn't be shared)
+#### server.key: Server private key, password protected (this shouldn't be shared)
 
-### server.csr: Server certificate signing request (this should be shared with the CA owner)
+#### server.csr: Server certificate signing request (this should be shared with the CA owner)
 
-### server.crt: Server certificate signed by the CA (this would be sent back by the CA owner) - keep on server
+#### server.crt: Server certificate signed by the CA (this would be sent back by the CA owner) - keep on server
 
-### server.pem: Conversion of server.key into a format gRPC likes (this shouldn't be shared)
+#### server.pem: Conversion of server.key into a format gRPC likes (this shouldn't be shared)
 
 ## How to run the blog gRPC?
 
